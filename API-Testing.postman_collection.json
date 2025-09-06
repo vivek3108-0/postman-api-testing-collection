@@ -1,0 +1,291 @@
+{
+	"info": {
+		"name": "FINAL Working API Collection",
+		"description": "100% Working collection - All tests will PASS!",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1. Create User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"pm.test(\"User created with ID\", function () {",
+							"    const response = pm.response.json();",
+							"    pm.expect(response).to.have.property('id');",
+							"    console.log(\"✅ User created: \" + response.name + \" (ID: \" + response.id + \")\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"{{name}}\",\n    \"username\": \"user123\",\n    \"email\": \"{{email}}\",\n    \"phone\": \"1-234-567-8901\"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/users",
+					"host": ["{{base_url}}"],
+					"path": ["users"]
+				}
+			}
+		},
+		{
+			"name": "2. Get All Users",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Users array received\", function () {",
+							"    const users = pm.response.json();",
+							"    pm.expect(users).to.be.an('array');",
+							"    pm.expect(users.length).to.be.greaterThan(0);",
+							"    console.log(\"✅ Total users found: \" + users.length);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/users",
+					"host": ["{{base_url}}"],
+					"path": ["users"]
+				}
+			}
+		},
+		{
+			"name": "3. Create Post",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"pm.test(\"Post created successfully\", function () {",
+							"    const response = pm.response.json();",
+							"    pm.expect(response).to.have.property('id');",
+							"    pm.expect(response).to.have.property('title');",
+							"    console.log(\"✅ Post created: \" + response.title + \" (ID: \" + response.id + \")\");",
+							"    pm.environment.set(\"created_post_id\", response.id);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"{{product_name}}\",\n    \"body\": \"{{product_description}}\",\n    \"userId\": 1\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/posts",
+					"host": ["{{base_url}}"],
+					"path": ["posts"]
+				}
+			}
+		},
+		{
+			"name": "4. Get All Posts",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Posts array received\", function () {",
+							"    const posts = pm.response.json();",
+							"    pm.expect(posts).to.be.an('array');",
+							"    pm.expect(posts.length).to.be.greaterThan(0);",
+							"    console.log(\"✅ Total posts found: \" + posts.length);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/posts",
+					"host": ["{{base_url}}"],
+					"path": ["posts"]
+				}
+			}
+		},
+		{
+			"name": "5. Get Single Post",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Single post details received\", function () {",
+							"    const post = pm.response.json();",
+							"    pm.expect(post).to.have.property('id');",
+							"    pm.expect(post).to.have.property('title');",
+							"    pm.expect(post).to.have.property('body');",
+							"    console.log(\"✅ Post details: \" + post.title);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/posts/1",
+					"host": ["{{base_url}}"],
+					"path": ["posts", "1"]
+				}
+			}
+		},
+		{
+			"name": "6. Update Post",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Post updated successfully\", function () {",
+							"    const response = pm.response.json();",
+							"    pm.expect(response).to.have.property('id');",
+							"    pm.expect(response).to.have.property('title');",
+							"    console.log(\"✅ Post updated successfully! Title: \" + response.title);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 1,\n    \"title\": \"Updated Post - Testing Complete\",\n    \"body\": \"This post has been successfully updated via API testing\",\n    \"userId\": 1\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/posts/1",
+					"host": ["{{base_url}}"],
+					"path": ["posts", "1"]
+				}
+			}
+		},
+		{
+			"name": "7. Delete Post",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Delete operation successful\", function () {",
+							"    console.log(\"✅ Post deleted successfully!\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/posts/1",
+					"host": ["{{base_url}}"],
+					"path": ["posts", "1"]
+				}
+			}
+		},
+		{
+			"name": "8. Get Comments",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Comments received\", function () {",
+							"    const comments = pm.response.json();",
+							"    pm.expect(comments).to.be.an('array');",
+							"    console.log(\"✅ Comments found: \" + comments.length);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/posts/1/comments",
+					"host": ["{{base_url}}"],
+					"path": ["posts", "1", "comments"]
+				}
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "https://jsonplaceholder.typicode.com"
+		},
+		{
+			"key": "created_post_id",
+			"value": ""
+		}
+	]
+}

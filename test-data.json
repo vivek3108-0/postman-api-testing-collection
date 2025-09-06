@@ -1,0 +1,52 @@
+[
+  {
+    "name": "John Doe",
+    "email": "john@example.com",
+    "password": "Test@123",
+    "product_name": "iPhone 15",
+    "product_price": 999,
+    "product_description": "Latest iPhone model",
+    "updated_product_name": "iPhone 15 Pro",
+    "updated_price": 1199
+  },
+  {
+    "name": "Jane Smith",
+    "email": "jane@example.com",
+    "password": "Test@456",
+    "product_name": "Samsung Galaxy",
+    "product_price": 799,
+    "product_description": "Android smartphone",
+    "updated_product_name": "Samsung Galaxy Ultra",
+    "updated_price": 999
+  },
+  {
+    "name": "Mike Johnson",
+    "email": "mike@example.com",
+    "password": "Test@789",
+    "product_name": "MacBook Pro",
+    "product_price": 1999,
+    "product_description": "Apple laptop",
+    "updated_product_name": "MacBook Pro M3",
+    "updated_price": 2299
+  },
+  {
+    "name": "Sarah Wilson",
+    "email": "sarah@example.com",
+    "password": "Test@321",
+    "product_name": "iPad Air",
+    "product_price": 599,
+    "product_description": "Apple tablet",
+    "updated_product_name": "iPad Air M2",
+    "updated_price": 699
+  },
+  {
+    "name": "David Brown",
+    "email": "david@example.com",
+    "password": "Test@654",
+    "product_name": "Dell Laptop",
+    "product_price": 899,
+    "product_description": "Windows laptop",
+    "updated_product_name": "Dell XPS 13",
+    "updated_price": 1099
+  }
+]
