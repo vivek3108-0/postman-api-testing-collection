@@ -166,18 +166,6 @@ This collection demonstrates:
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🆘 Support
-
-If you encounter any issues:
-
-1. Check the [troubleshooting guide](docs/FIXED-README.md)
-2. Review the [detailed usage guide](docs/HOW-TO-USE.md)
-3. Open an [issue](https://github.com/YOUR-USERNAME/postman-api-testing/issues)
-
 ## 🌟 Acknowledgments
 
 - [JSONPlaceholder](https://jsonplaceholder.typicode.com/) for providing free testing API
