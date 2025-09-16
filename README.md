@@ -25,7 +25,7 @@ This project contains a complete Postman collection that demonstrates:
 
 ```
 postman-api-testing/
-├── FINAL-Working-Collection.postman_collection.json  # Main collection file
+├── API-Testing.postman_collection.json             # Main collection file
 ├── test-data.json                                   # Test data for iterations
 ├── Environment.postman_environment.json             # Environment variables
 ├── README.md                                        # This file
